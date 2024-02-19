@@ -42,6 +42,10 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
+bootRun {
+	jvmArgs('-Dspring.output.ansi.enabled=always')
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
