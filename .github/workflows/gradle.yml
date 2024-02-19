@@ -1,0 +1,36 @@
+name: Grace CI
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - 'main'
+  workflow_dispatch:
+jobs:
+  build:
+    permissions:
+      contents: read  #  to fetch code (actions/checkout)
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: ['11']
+    env:
+      WORKSPACE: ${{ github.workspace }}
+    steps:
+      - name: Checkout repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'adopt'
+          java-version: ${{ matrix.java }}
+      - name: Run Build
+        id: build
+        uses: gradle/gradle-build-action@v3
+        with:
+          arguments: build
