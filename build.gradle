@@ -23,7 +23,7 @@ configurations {
 
 dependencyManagement {
      imports {
-          mavenBom 'org.graceframework:grace-bom:2022.1.0'
+          mavenBom 'org.graceframework:grace-bom:2022.2.4'
      }
 }
 
