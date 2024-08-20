@@ -10,7 +10,7 @@ spring init -a=gs-spring-boot -g=grace.guides -n="Grace Guide for Spring Boot" -
 
 ### Using Spring Boot 2.7.18
 
-In this guide, I will use Spring Boot `2.7.18`, because Grace `2022.1.0` is built upon that version.
+In this guide, I will use Spring Boot `2.7.18`, because Grace `2022.2.8` is built upon that version.
 
 ```gradle
 plugins {
@@ -18,8 +18,6 @@ plugins {
 	id 'org.springframework.boot' version '2.7.18'
 	id 'io.spring.dependency-management' version '1.1.4'
 }
-
-ext['spring-boot.version'] = '2.7.18'
 
 group = 'grace.guides'
 version = '0.0.1-SNAPSHOT'
@@ -40,7 +38,7 @@ dependencies {
 	developmentOlny 'org.springframework.boot:spring-boot-starter-devtools'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-tomcat'
-    // Using Groovy 3.0
+	// Using Groovy 3.0
 	implementation 'org.codehaus.groovy:groovy'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
@@ -51,10 +49,10 @@ tasks.named('test') {
 
 ```
 
-### Using Gradle 7.6.3
+### Using Gradle 7.6.4
 
 ```bash
-./gradlew wrapper --gradle-version=7.6.3
+./gradlew wrapper --gradle-version=7.6.4
 ```
 
 First, import `grace-bom`, then adding the dependencies,
@@ -62,7 +60,7 @@ First, import `grace-bom`, then adding the dependencies,
 ```gradle
 dependencyManagement {
      imports {
-          mavenBom 'org.graceframework:grace-bom:2022.1.0'
+          mavenBom 'org.graceframework:grace-bom:2022.2.8'
      }
 }
 
@@ -72,6 +70,7 @@ dependencies {
 	implementation 'org.graceframework:grace-core'
 	implementation 'org.graceframework:grace-plugin-api'
 	implementation 'org.graceframework:grace-plugin-core'
+	implementation 'org.graceframework:grace-plugin-dynamic-modules'
 	implementation 'org.graceframework:grace-plugin-management'
     ...
 }
@@ -101,7 +100,8 @@ class LanguageGrailsPlugin extends DynamicPlugin {
     def providedModules = [LanguageModuleDescriptor]
 
     Closure doWithSpring() { {->
-            languageManager(DefaultLanguageManager)
+            // Use Spring AutoConfiguration
+            // languageManager(DefaultLanguageManager)
         }
     }
 
@@ -118,6 +118,7 @@ class LanguageGrailsPlugin extends DynamicPlugin {
 ### Using LanguageModuleDescriptor
 
 ```groovy
+@SpringBootApplication
 class GraceBootApplication implements CommandLineRunner {
 
 	@Autowired
@@ -154,24 +155,24 @@ class GraceBootApplication implements CommandLineRunner {
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::               (v2.7.18)
 
-2024-02-22 16:55:25.147  INFO 84908 --- [           main] grace.guides.GraceBootApplication        : Starting GraceBootApplication using Java 17.0.5 on Michaels-MBP with PID 84908 (/Users/rain/Development/grace/grace-guides/gs-spring-boot/build/classes/groovy/main started by rain in /Users/rain/Development/grace/grace-guides/gs-spring-boot)
-2024-02-22 16:55:25.151  INFO 84908 --- [           main] grace.guides.GraceBootApplication        : No active profile set, falling back to 1 default profile: "default"
-2024-02-22 16:55:26.560  INFO 84908 --- [           main] g.plugins.DefaultGrailsPluginManager     : Total 3 plugins loaded successfully, take in 133 ms
-2024-02-22 16:55:27.220  INFO 84908 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2024-02-22 16:55:27.233  INFO 84908 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-02-22 16:55:27.233  INFO 84908 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
-2024-02-22 16:55:27.357  INFO 84908 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-02-22 16:55:27.357  INFO 84908 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2130 ms
-2024-02-22 16:55:27.975  WARN 84908 --- [           main] .b.a.g.t.GroovyTemplateAutoConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Groovy configuration, or set spring.groovy.template.check-template-location=false)
-2024-02-22 16:55:28.159  INFO 84908 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
-2024-02-22 16:55:28.234  INFO 84908 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2024-02-22 16:55:28.254  INFO 84908 --- [           main] grace.guides.GraceBootApplication        : Started GraceBootApplication in 4.068 seconds (JVM running for 5.086)
-2024-02-22 16:55:28.255 DEBUG 84908 --- [           main] PluginsInfoApplicationContextInitializer :
+2024-08-20 12:55:06.883  INFO 76183 --- [           main] grace.guides.GraceBootApplication        : Starting GraceBootApplication using Java 17.0.12 on Michaels-Mini with PID 76183 (/Users/rain/Development/github/grace/grace-guides/gs-spring-boot/build/classes/groovy/main started by rain in /Users/rain/Development/github/grace/grace-guides/gs-spring-boot)
+2024-08-20 12:55:06.884  INFO 76183 --- [           main] grace.guides.GraceBootApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-08-20 12:55:07.267  INFO 76183 --- [           main] g.plugins.DefaultGrailsPluginManager     : Total 3 plugins loaded successfully, take in 47 ms
+2024-08-20 12:55:07.469  INFO 76183 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-08-20 12:55:07.474  INFO 76183 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-20 12:55:07.474  INFO 76183 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.93]
+2024-08-20 12:55:07.511  INFO 76183 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-20 12:55:07.511  INFO 76183 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 610 ms
+2024-08-20 12:55:07.727  WARN 76183 --- [           main] .b.a.g.t.GroovyTemplateAutoConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Groovy configuration, or set spring.groovy.template.check-template-location=false)
+2024-08-20 12:55:07.782  INFO 76183 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-20 12:55:07.804  INFO 76183 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-08-20 12:55:07.812  INFO 76183 --- [           main] grace.guides.GraceBootApplication        : Started GraceBootApplication in 1.072 seconds (JVM running for 1.371)
+2024-08-20 12:55:07.813 DEBUG 76183 --- [           main] PluginsInfoApplicationContextInitializer :
 ----------------------------------------------------------------------------------------------
 Order      Plugin Name                              Plugin Version                     Enabled
 ----------------------------------------------------------------------------------------------
-    1      Core                                     2022.1.0                                 Y
-    2      DynamicModules                           2022.1.0                                 Y
+    1      Core                                     2022.2.8                                 Y
+    2      DynamicModules                           2022.2.8                                 Y
     3      Language                                 1.0.0                                    Y
 ----------------------------------------------------------------------------------------------
 
@@ -187,7 +188,7 @@ Language: key=zh_TW, title=Chinese (Traditional Chinese)
 HTTP/1.1 200
 Connection: keep-alive
 Content-Type: application/vnd.spring-boot.actuator.v3+json
-Date: Thu, 22 Feb 2024 09:04:45 GMT
+Date: Tue, 20 Aug 2024 04:55:12 GMT
 Keep-Alive: timeout=60
 Transfer-Encoding: chunked
 
@@ -197,13 +198,13 @@ Transfer-Encoding: chunked
             "dependencies": [],
             "name": "core",
             "type": "org.grails.plugins.core.CoreGrailsPlugin",
-            "version": "2022.1.0"
+            "version": "2022.2.8"
         },
         {
             "dependencies": [],
             "name": "dynamicModules",
             "type": "org.grails.plugins.modules.DynamicModulesGrailsPlugin",
-            "version": "2022.1.0"
+            "version": "2022.2.8"
         },
         {
             "dependencies": [],
