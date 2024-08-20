@@ -21,7 +21,7 @@ configurations {
 
 dependencyManagement {
      imports {
-          mavenBom 'org.graceframework:grace-bom:2022.2.6'
+          mavenBom 'org.graceframework:grace-bom:2022.2.8'
      }
 }
 
