@@ -1,14 +1,17 @@
 plugins {
 	id 'groovy'
-	id 'org.springframework.boot' version '2.7.18'
-	id 'io.spring.dependency-management' version '1.1.4'
+	id 'org.springframework.boot' version '3.3.2'
+	id 'io.spring.dependency-management' version '1.1.6'
 }
+
+ext['spring-boot.version'] = '3.3.2'
+ext['spring-framework.version'] = '6.1.12'
 
 group = 'grace.guides'
 version = '0.0.1-SNAPSHOT'
 
 java {
-	sourceCompatibility = '11'
+	sourceCompatibility = '17'
 }
 
 repositories {
@@ -21,7 +24,7 @@ configurations {
 
 dependencyManagement {
      imports {
-          mavenBom 'org.graceframework:grace-bom:2022.2.8'
+          mavenBom 'org.graceframework:grace-bom:2023.0.0'
      }
 }
 
@@ -36,7 +39,7 @@ dependencies {
 	implementation 'org.graceframework:grace-plugin-core'
 	implementation 'org.graceframework:grace-plugin-management'
 	implementation 'org.graceframework:grace-plugin-dynamic-modules'
-	implementation 'org.codehaus.groovy:groovy'
+	implementation 'org.apache.groovy:groovy'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
