@@ -10,8 +10,8 @@ class LanguageGrailsPlugin extends DynamicPlugin {
     def providedModules = [LanguageModuleDescriptor]
 
     Closure doWithSpring() { {->
-            // Use Spring AutoConfiguration
-            // languageManager(DefaultLanguageManager)
+            // You can also use Spring AutoConfiguration
+            languageManager(DefaultLanguageManager)
         }
     }
 
