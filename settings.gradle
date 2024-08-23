@@ -1,1 +1,21 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        maven { url 'https://repo.gradle.org/gradle/libs-releases' }
+    }
+    plugins {
+        id 'org.springframework.boot' version springBootVersion
+        id 'io.spring.dependency-management' version springDependencyManagementVersion
+        id "org.graceframework.grace-gsp" version graceVersion
+        id "org.graceframework.grace-web" version graceVersion
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+}
+
 rootProject.name = 'gs-spring-boot'
