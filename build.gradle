@@ -22,9 +22,9 @@ configurations {
 }
 
 dependencyManagement {
-     imports {
-          mavenBom 'org.graceframework:grace-bom:2023.0.0'
-     }
+	imports {
+        mavenBom "org.graceframework:grace-bom:$graceVersion"
+    }
 }
 
 dependencies {
