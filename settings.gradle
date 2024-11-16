@@ -2,7 +2,6 @@ pluginManagement {
     repositories {
         mavenCentral()
         gradlePluginPortal()
-        maven { url 'https://repo.gradle.org/gradle/libs-releases' }
     }
     plugins {
         id 'org.springframework.boot' version springBootVersion
