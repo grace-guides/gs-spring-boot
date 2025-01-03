@@ -1,18 +1,1 @@
-pluginManagement {
-    repositories {
-        mavenCentral()
-        gradlePluginPortal()
-    }
-    plugins {
-        id 'org.springframework.boot' version springBootVersion
-        id 'io.spring.dependency-management' version springDependencyManagementVersion
-    }
-}
-
-dependencyResolutionManagement {
-    repositories {
-        mavenCentral()
-    }
-}
-
 rootProject.name = 'gs-spring-boot'

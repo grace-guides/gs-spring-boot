@@ -1,11 +1,8 @@
 plugins {
     id 'groovy'
-    id 'org.springframework.boot'
-    id 'io.spring.dependency-management'
+    id 'org.springframework.boot' version '3.3.7'
+    id 'io.spring.dependency-management' version '1.1.7'
 }
-
-ext['spring-boot.version'] = springBootVersion
-ext['spring-framework.version'] = springFrameworkVersion
 
 group = 'grace.guides'
 
@@ -23,20 +20,14 @@ configurations {
     developmentOlny
 }
 
-dependencyManagement {
-    imports {
-        mavenBom "org.graceframework:grace-bom:$graceVersion"
-    }
-}
-
 dependencies {
     developmentOlny 'org.springframework.boot:spring-boot-starter-devtools'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.graceframework:grace-boot'
-    implementation 'org.graceframework:grace-plugin-core'
-    implementation 'org.graceframework:grace-plugin-management'
-    implementation 'org.graceframework.plugins:dynamic-modules:1.0.0-M1'
+    implementation "org.graceframework:grace-boot:$graceVersion"
+    implementation "org.graceframework:grace-plugin-core:$graceVersion"
+    implementation "org.graceframework:grace-plugin-management:$graceVersion"
+    implementation "org.graceframework.plugins:dynamic-modules:1.0.0-M1"
     implementation 'org.apache.groovy:groovy'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
