@@ -10,20 +10,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 @SpringBootApplication
 class GraceBootApplication implements CommandLineRunner {
 
-	@Autowired
-	LanguageManager languageManager
+    @Autowired
+    LanguageManager languageManager
 
-	static void main(String[] args) {
-		SpringApplication.run(GraceBootApplication, args)
-	}
+    static void main(String[] args) {
+        SpringApplication.run(GraceBootApplication, args)
+    }
 
-	@Override
-	void run(String... args) throws Exception {
-		List<LanguageModuleDescriptor> languageModuleDescriptors = this.languageManager.getLanguages()
+    @Override
+    void run(String... args) throws Exception {
+        List<LanguageModuleDescriptor> languageModuleDescriptors = this.languageManager.getLanguages()
 
-		languageModuleDescriptors.each { md ->
-			println "Language: key=$md.key, title=$md.title"
-		}
-	}
+        languageModuleDescriptors.each { md ->
+            println "Language: key=$md.key, title=$md.title"
+        }
+    }
 
 }
