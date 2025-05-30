@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>2 Usage 2023.3.0-SNAPSHOT</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
+    <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
+    <script type="text/javascript">
+function addJsClass() {
+    var classes = document.body.className.split(" ");
+    classes.push("js");
+    document.body.className = classes.join(" ");
+}
+    </script>
+</head>
+
+<body class="body" onload="addJsClass();">
+<div id="navigation">
+    <div class="navHeader">
+        
+        <span id="logo">
+            <a href="https://graceframework.org" title="Grace Framework Website">
+                <img src="../img/grace.svg" alt="Grace Framework" />
+            </a>
+        </span>
+        
+        <div class="docHeader">
+            <h1 class="docTitle">GS Spring Boot</h1>
+            <h3 class="docSubTitle">Develop Spring Boot applications with Grace</h3>
+        </div>
+    </div>
+    <div class="navLinks">
+        <ul>
+            <li>
+                <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)">
+                    <a href="../guide/index.html" class="button">Table of contents</a>
+
+                    <div id="nav-summary-childs" style="display:none;">
+                        
+                        <div class="toc-item" style="margin-left:0"><a href="../guide/introduction.html"><strong>1</strong><span>Introduction</span></a>
+                        </div>
+                        
+                        <div class="toc-item" style="margin-left:0"><a href="../guide/usage.html"><strong>2</strong><span>Usage</span></a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </li>
+            <li class="separator selected">
+                <a id="ref-button" onclick="localToggle(); return false;" href="#">Quick Reference</a>
+            </li>
+            <li class="separator selected">
+                <a id="ref-button" href="../api/index.html">API Docs</a>
+            </li>
+        </ul>
+    </div>
+
+
+</div>
+
+<table id="colset" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td id="col1">
+            <div id="main" class="corner-all">
+
+                
+                    <div class="toc-item prev-left"><a href="../guide/introduction.html">&lt;&lt; <strong>1</strong><span>Introduction</span></a></div>
+                
+
+                <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
+
+                
+
+
+                <div class="project">
+                    <h1>2 Usage</h1>
+
+                    <p><strong>Version:</strong> 2023.3.0-SNAPSHOT</p>
+                </div>
+
+                
+
+                
+
+<h1 id="usage"><a class="anchor" href="#usage"></a>2 Usage</h1>
+
+
+<div class="sect2">
+<h3 id="_creating_a_new_spring_app">Creating a new Spring app</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ spring init \
+    -a=gs-spring-boot \
+    -g=grace.guides \
+    -n=&quot;Grace Guide for Spring Boot&quot; \
+    --description=&quot;Spring Boot Application with Grace Plugins&quot; \
+    --package-name=grace.guides \
+    -l=groovy \
+    --build=gradle \
+    --format=project \
+    -t=gradle-project \
+    -d=devtools,actuator,web -x</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_spring_boot_3_3_11">Using Spring Boot 3.3.11</h3>
+<div class="paragraph">
+<p>In this guide, I will use Spring Boot <code>3.3.11</code>, Grace <code>2023.3.0-RC2</code> is now built upon version <code>3.3.11</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">plugins {
+        id <span class="string"><span class="delimiter">'</span><span class="content">groovy</span><span class="delimiter">'</span></span>
+        id <span class="string"><span class="delimiter">'</span><span class="content">org.springframework.boot</span><span class="delimiter">'</span></span> version <span class="string"><span class="delimiter">'</span><span class="content">3.3.11</span><span class="delimiter">'</span></span>
+        id <span class="string"><span class="delimiter">'</span><span class="content">io.spring.dependency-management</span><span class="delimiter">'</span></span> version <span class="string"><span class="delimiter">'</span><span class="content">1.1.7</span><span class="delimiter">'</span></span>
+}
+
+group = <span class="string"><span class="delimiter">'</span><span class="content">grace.guides</span><span class="delimiter">'</span></span>
+version = <span class="string"><span class="delimiter">'</span><span class="content">0.0.1-SNAPSHOT</span><span class="delimiter">'</span></span>
+
+java {
+        sourceCompatibility = <span class="string"><span class="delimiter">'</span><span class="content">17</span><span class="delimiter">'</span></span>
+}
+
+repositories {
+        mavenCentral()
+}
+
+configurations {
+        developmentOlny
+}
+
+dependencies {
+        developmentOlny <span class="string"><span class="delimiter">'</span><span class="content">org.springframework.boot:spring-boot-starter-devtools</span><span class="delimiter">'</span></span>
+        implementation <span class="string"><span class="delimiter">'</span><span class="content">org.springframework.boot:spring-boot-starter-actuator</span><span class="delimiter">'</span></span>
+        implementation <span class="string"><span class="delimiter">'</span><span class="content">org.springframework.boot:spring-boot-starter-web</span><span class="delimiter">'</span></span>
+        implementation <span class="string"><span class="delimiter">'</span><span class="content">org.apache.groovy:groovy</span><span class="delimiter">'</span></span>
+        testImplementation <span class="string"><span class="delimiter">'</span><span class="content">org.springframework.boot:spring-boot-starter-test</span><span class="delimiter">'</span></span>
+}
+
+tasks.named(<span class="string"><span class="delimiter">'</span><span class="content">test</span><span class="delimiter">'</span></span>) {
+        useJUnitPlatform()
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_adding_grace_dependencies_and_plugins">Adding Grace dependencies and plugins</h3>
+<div class="paragraph">
+<p>First, import <code>grace-bom</code>, then add the Grace dependencies,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">dependencyManagement {
+        imports {
+        mavenBom <span class="string"><span class="delimiter">&quot;</span><span class="content">org.graceframework:grace-bom:</span><span class="inline"><span class="inline-delimiter">$</span>graceVersion</span><span class="delimiter">&quot;</span></span>
+    }
+}
+
+dependencies {
+        <span class="comment">// Grace dependencies</span>
+        implementation <span class="string"><span class="delimiter">'</span><span class="content">org.graceframework:grace-boot</span><span class="delimiter">'</span></span>
+        implementation <span class="string"><span class="delimiter">'</span><span class="content">org.graceframework:grace-plugin-core</span><span class="delimiter">'</span></span>
+        implementation <span class="string"><span class="delimiter">'</span><span class="content">org.graceframework:grace-plugin-management</span><span class="delimiter">'</span></span>
+        implementation <span class="string"><span class="delimiter">'</span><span class="content">org.graceframework.plugins:dynamic-modules:1.0.0-M1</span><span class="delimiter">'</span></span>
+    ...
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_enabling_endpoints">Enabling Endpoints</h3>
+<div class="paragraph">
+<p><code>grace-plugin-management</code> include a built-in endpoint <code>/plugins</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="properties">management.endpoints.enabled-by-default=true
+management.endpoints.web.exposure.include=*</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_creating_a_dynamic_plugin">Creating a Dynamic Plugin</h3>
+<div class="paragraph">
+<p><code>LanguageGrailsPlugin</code> is a <code>DynamicPlugin</code>, you can register dynamic modules by providing <code>providedModules</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="keyword">def</span> providedModules = [LanguageModuleDescriptor]</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="type">class</span> <span class="class">LanguageGrailsPlugin</span> <span class="directive">extends</span> DynamicPlugin {
+
+    <span class="keyword">def</span> version = <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0.0</span><span class="delimiter">&quot;</span></span>
+    <span class="keyword">def</span> providedModules = [LanguageModuleDescriptor]
+
+    Closure doWithSpring() { {-&gt;
+            <span class="comment">// You can also use Spring AutoConfiguration</span>
+            languageManager(DefaultLanguageManager)
+        }
+    }
+
+    Closure doWithDynamicModules() { {-&gt;
+        <span class="comment">// Supported Languages</span>
+        language(<span class="key">key</span>: <span class="string"><span class="delimiter">'</span><span class="content">en_US</span><span class="delimiter">'</span></span>, <span class="key">title</span>: <span class="string"><span class="delimiter">'</span><span class="content">English</span><span class="delimiter">'</span></span>, <span class="key">i18nNameKey</span>: <span class="string"><span class="delimiter">'</span><span class="content">languages.en_US</span><span class="delimiter">'</span></span>)
+        language(<span class="key">key</span>: <span class="string"><span class="delimiter">'</span><span class="content">zh_CN</span><span class="delimiter">'</span></span>, <span class="key">title</span>: <span class="string"><span class="delimiter">'</span><span class="content">Chinese (Simplified Chinese)</span><span class="delimiter">'</span></span>, <span class="key">i18nNameKey</span>: <span class="string"><span class="delimiter">'</span><span class="content">languages.zh_CN</span><span class="delimiter">'</span></span>)
+        language(<span class="key">key</span>: <span class="string"><span class="delimiter">'</span><span class="content">zh_TW</span><span class="delimiter">'</span></span>, <span class="key">title</span>: <span class="string"><span class="delimiter">'</span><span class="content">Chinese (Traditional Chinese)</span><span class="delimiter">'</span></span>, <span class="key">i18nNameKey</span>: <span class="string"><span class="delimiter">'</span><span class="content">languages.zh_TW</span><span class="delimiter">'</span></span>, <span class="key">enabled</span>: <span class="predefined-constant">true</span>)
+    }}
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_languagemoduledescriptor">Using LanguageModuleDescriptor</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy"><span class="annotation">@SpringBootApplication</span>
+<span class="type">class</span> <span class="class">GraceBootApplication</span> <span class="directive">implements</span> CommandLineRunner {
+
+    <span class="annotation">@Autowired</span>
+    LanguageManager languageManager
+
+    <span class="directive">static</span> <span class="type">void</span> main(<span class="predefined-type">String</span><span class="type">[]</span> args) {
+        SpringApplication.run(GraceBootApplication, args)
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="type">void</span> run(<span class="predefined-type">String</span>... args) <span class="directive">throws</span> <span class="exception">Exception</span> {
+        <span class="predefined-type">List</span>&lt;LanguageModuleDescriptor&gt; languageModuleDescriptors = <span class="local-variable">this</span>.languageManager.getLanguages()
+
+        languageModuleDescriptors.each { md -&gt;
+            println <span class="string"><span class="delimiter">&quot;</span><span class="content">Language: key=</span><span class="inline"><span class="inline-delimiter">$</span>md</span><span class="content">.key, title=</span><span class="inline"><span class="inline-delimiter">$</span>md</span><span class="content">.title</span><span class="delimiter">&quot;</span></span>
+        }
+    }
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_starting">Starting</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">➜  gs-spring-boot git:(main) ✗ ./gradlew bootRun
+
+&gt; Task :bootRun
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.3.11)
+
+2025-05-13T23:40:44.028+08:00  INFO 28030 --- [           main] grace.guides.GraceBootApplication        : Starting GraceBootApplication using Java 17.0.15 with PID 28030 ....
+2025-05-13T23:40:44.029+08:00  INFO 28030 --- [           main] grace.guides.GraceBootApplication        : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2025-05-13T23:40:44.406+08:00  INFO 28030 --- [           main] g.plugins.DefaultGrailsPluginManager     : Total 3 plugins loaded successfully, take in 43 ms
+...
+2025-05-13T23:40:44.937+08:00  INFO 28030 --- [           main] grace.guides.GraceBootApplication        : Started GraceBootApplication in 1.032 seconds (process running for 1.332)
+2025-05-13T23:40:44.937+08:00 DEBUG 28030 --- [           main] PluginsInfoApplicationContextInitializer :
+----------------------------------------------------------------------------------------------------------
+Order      Plugin Name                        Plugin Version                                       Enabled
+----------------------------------------------------------------------------------------------------------
+    1      Core                               2023.3.0-RC2                                               Y
+    2      DynamicModules                     1.0.0-M1                                                   Y
+    3      Language                           1.0.0                                                      Y
+----------------------------------------------------------------------------------------------------------
+
+Language: key=en_US, title=English
+Language: key=zh_CN, title=Chinese (Simplified Chinese)
+Language: key=zh_TW, title=Chinese (Traditional Chinese)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_accessing_endpoints_plugins_and_info">Accessing endpoints <code>plugins</code> and <code>info</code></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">➜  gs-spring-boot git:(main) ✗ http :8080/actuator/plugins
+HTTP/1.1 200
+Connection: keep-alive
+Content-Type: application/json
+Date: Tue, 13 May 2025 15:41:36 GMT
+Keep-Alive: timeout=60
+Transfer-Encoding: chunked
+
+{
+    &quot;plugins&quot;: [
+        {
+            &quot;dependencies&quot;: [],
+            &quot;name&quot;: &quot;core&quot;,
+            &quot;type&quot;: &quot;org.grails.plugins.core.CoreGrailsPlugin&quot;,
+            &quot;version&quot;: &quot;2023.3.0-RC2&quot;
+        },
+        {
+            &quot;dependencies&quot;: [],
+            &quot;name&quot;: &quot;dynamicModules&quot;,
+            &quot;type&quot;: &quot;org.grails.plugins.modules.DynamicModulesGrailsPlugin&quot;,
+            &quot;version&quot;: &quot;1.0.0-M1&quot;
+        },
+        {
+            &quot;dependencies&quot;: [],
+            &quot;name&quot;: &quot;language&quot;,
+            &quot;type&quot;: &quot;grace.guides.plugins.LanguageGrailsPlugin&quot;,
+            &quot;version&quot;: &quot;1.0.0&quot;
+        }
+    ]
+}
+
+➜  gs-spring-boot git:(main) ✗ http :8080/actuator/info
+HTTP/1.1 200
+Connection: keep-alive
+Content-Type: application/json
+Date: Tue, 13 May 2025 15:41:20 GMT
+Keep-Alive: timeout=60
+Transfer-Encoding: chunked
+
+{
+    &quot;app&quot;: {
+        &quot;grailsVersion&quot;: &quot;2023.3.0-RC2&quot;,
+        &quot;name&quot;: &quot;grailsApplication&quot;,
+        &quot;servletVersion&quot;: &quot;6.0&quot;
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+
+
+                <div style="clear:both;margin-top:15px;"></div>
+                
+                    <div class="toc-item prev-left"><a href="../guide/introduction.html">&lt;&lt; <strong>1</strong><span>Introduction</span></a></div>
+                
+                <div style="clear:both"></div>
+            </div>
+        </td>
+        <td id="col2">
+            <div class="local clearfix">
+                <div class="local-title">
+                    <a href="../guide/index.html" target="mainFrame">Quick Reference</a>
+                    <span class="toggle">(<a href="#" onclick="localToggle(); return false;">hide</a>)</span>
+                </div>
+                <div class="menu">
+                    
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div id="footer">
+    Copyright &copy; 2024-2025 Michael Yan. The content is licensed under a Creative Commons Attribution 4.0 International (CC BY SA 4.0) license.
+    
+</div>
+
+<script type="text/javascript" src="../js/docs.js"></script>
+
+</body>
+</html>
