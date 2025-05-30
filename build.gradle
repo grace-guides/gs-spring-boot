@@ -2,6 +2,7 @@ plugins {
     id 'groovy'
     id 'org.springframework.boot' version '3.3.11'
     id 'io.spring.dependency-management' version '1.1.7'
+    id 'org.graceframework.grace-doc' version "$graceVersion"
 }
 
 group = 'grace.guides'
@@ -38,4 +39,9 @@ bootRun {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+tasks.named('groovydoc') {
+    docTitle = "GS Spring Boot - ${project.version}"
+    destinationDir = project.file('build/docs/manual/api')
 }
