@@ -94,13 +94,13 @@ function addJsClass(el) {
 <div class="ulist">
 <ul>
 <li>
-<p>Grace 2023.3.0-RC2</p>
+<p>Grace 2023.3.0</p>
 </li>
 <li>
-<p>Groovy 4.0.26</p>
+<p>Groovy 4.0.27</p>
 </li>
 <li>
-<p>Spring Boot 3.3.11</p>
+<p>Spring Boot 3.3.13</p>
 </li>
 </ul>
 </div>
@@ -129,15 +129,15 @@ function addJsClass(el) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_using_spring_boot_3_3_11">Using Spring Boot 3.3.11</h3>
+<h3 id="_using_spring_boot_3_3_13">Using Spring Boot 3.3.13</h3>
 <div class="paragraph">
-<p>In this guide, I will use Spring Boot <code>3.3.11</code>, Grace <code>2023.3.0-RC2</code> is now built upon version <code>3.3.11</code>.</p>
+<p>In this guide, I will use Spring Boot <code>3.3.13</code>, Grace <code>2023.3.0-RC2</code> is now built upon version <code>3.3.13</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="groovy">plugins {
         id <span class="string"><span class="delimiter">'</span><span class="content">groovy</span><span class="delimiter">'</span></span>
-        id <span class="string"><span class="delimiter">'</span><span class="content">org.springframework.boot</span><span class="delimiter">'</span></span> version <span class="string"><span class="delimiter">'</span><span class="content">3.3.11</span><span class="delimiter">'</span></span>
+        id <span class="string"><span class="delimiter">'</span><span class="content">org.springframework.boot</span><span class="delimiter">'</span></span> version <span class="string"><span class="delimiter">'</span><span class="content">3.3.13</span><span class="delimiter">'</span></span>
         id <span class="string"><span class="delimiter">'</span><span class="content">io.spring.dependency-management</span><span class="delimiter">'</span></span> version <span class="string"><span class="delimiter">'</span><span class="content">1.1.7</span><span class="delimiter">'</span></span>
 }
 
@@ -282,19 +282,25 @@ management.endpoints.web.exposure.include=*</code></pre>
   '  |____| .__|_| |_|_| |_\__, | / / / /
  =========|_|==============|___/=/_/_/_/
 
- :: Spring Boot ::               (v3.3.11)
+ :: Spring Boot ::               (v3.3.13)
 
-2025-05-13T23:40:44.028+08:00  INFO 28030 --- [           main] grace.guides.GraceBootApplication        : Starting GraceBootApplication using Java 17.0.15 with PID 28030 ....
-2025-05-13T23:40:44.029+08:00  INFO 28030 --- [           main] grace.guides.GraceBootApplication        : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2025-05-13T23:40:44.406+08:00  INFO 28030 --- [           main] g.plugins.DefaultGrailsPluginManager     : Total 3 plugins loaded successfully, take in 43 ms
-...
-2025-05-13T23:40:44.937+08:00  INFO 28030 --- [           main] grace.guides.GraceBootApplication        : Started GraceBootApplication in 1.032 seconds (process running for 1.332)
-2025-05-13T23:40:44.937+08:00 DEBUG 28030 --- [           main] PluginsInfoApplicationContextInitializer :
+2025-07-20T20:17:19.512+08:00  INFO 98243 --- [           main] grace.guides.GraceBootApplication        : Starting GraceBootApplication using Java 17.0.15 with PID 98243 (/Users/rain/Development/github/grace/grace-guides/gs-spring-boot/build/classes/groovy/main started by rain in /Users/rain/Development/github/grace/grace-guides/gs-spring-boot)
+2025-07-20T20:17:19.513+08:00  INFO 98243 --- [           main] grace.guides.GraceBootApplication        : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2025-07-20T20:17:19.914+08:00  INFO 98243 --- [           main] g.plugins.DefaultGrailsPluginManager     : Total 3 plugins loaded successfully, take in 46 ms
+2025-07-20T20:17:20.121+08:00  INFO 98243 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-20T20:17:20.128+08:00  INFO 98243 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-20T20:17:20.128+08:00  INFO 98243 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-20T20:17:20.149+08:00  INFO 98243 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-20T20:17:20.149+08:00  INFO 98243 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 619 ms
+2025-07-20T20:17:20.407+08:00  INFO 98243 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoints beneath base path '/actuator'
+2025-07-20T20:17:20.444+08:00  INFO 98243 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-07-20T20:17:20.453+08:00  INFO 98243 --- [           main] grace.guides.GraceBootApplication        : Started GraceBootApplication in 1.068 seconds (process running for 1.356)
+2025-07-20T20:17:20.453+08:00 DEBUG 98243 --- [           main] PluginsInfoApplicationContextInitializer :
 ----------------------------------------------------------------------------------------------------------
 Order      Plugin Name                        Plugin Version                                       Enabled
 ----------------------------------------------------------------------------------------------------------
-    1      Core                               2023.3.0-RC2                                               Y
-    2      DynamicModules                     1.0.0-M1                                                   Y
+    1      Core                               2023.3.0                                                   Y
+    2      DynamicModules                     1.0.0-SNAPSHOT                                             Y
     3      Language                           1.0.0                                                      Y
 ----------------------------------------------------------------------------------------------------------
 
@@ -312,7 +318,7 @@ Language: key=zh_TW, title=Chinese (Traditional Chinese)</code></pre>
 HTTP/1.1 200
 Connection: keep-alive
 Content-Type: application/json
-Date: Tue, 13 May 2025 15:41:36 GMT
+Date: Sun, 20 Jul 2025 14:44:08 GMT
 Keep-Alive: timeout=60
 Transfer-Encoding: chunked
 
@@ -322,13 +328,13 @@ Transfer-Encoding: chunked
             &quot;dependencies&quot;: [],
             &quot;name&quot;: &quot;core&quot;,
             &quot;type&quot;: &quot;org.grails.plugins.core.CoreGrailsPlugin&quot;,
-            &quot;version&quot;: &quot;2023.3.0-RC2&quot;
+            &quot;version&quot;: &quot;2023.3.0&quot;
         },
         {
             &quot;dependencies&quot;: [],
             &quot;name&quot;: &quot;dynamicModules&quot;,
             &quot;type&quot;: &quot;org.grails.plugins.modules.DynamicModulesGrailsPlugin&quot;,
-            &quot;version&quot;: &quot;1.0.0-M1&quot;
+            &quot;version&quot;: &quot;1.0.0-SNAPSHOT&quot;
         },
         {
             &quot;dependencies&quot;: [],
@@ -343,13 +349,13 @@ Transfer-Encoding: chunked
 HTTP/1.1 200
 Connection: keep-alive
 Content-Type: application/json
-Date: Tue, 13 May 2025 15:41:20 GMT
+Date: Sun, 20 Jul 2025 14:43:13 GMT
 Keep-Alive: timeout=60
 Transfer-Encoding: chunked
 
 {
     &quot;app&quot;: {
-        &quot;grailsVersion&quot;: &quot;2023.3.0-RC2&quot;,
+        &quot;graceVersion&quot;: &quot;2023.3.0&quot;,
         &quot;name&quot;: &quot;grailsApplication&quot;,
         &quot;servletVersion&quot;: &quot;6.0&quot;
     }
