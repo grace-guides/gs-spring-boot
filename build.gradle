@@ -28,7 +28,7 @@ dependencies {
     implementation "org.graceframework:grace-boot:$graceVersion"
     implementation "org.graceframework:grace-plugin-core:$graceVersion"
     implementation "org.graceframework:grace-plugin-management:$graceVersion"
-    implementation "org.graceframework.plugins:dynamic-modules:1.0.0-M1"
+    implementation "org.graceframework.plugins:dynamic-modules:1.0.0-RC2"
     implementation 'org.apache.groovy:groovy'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
