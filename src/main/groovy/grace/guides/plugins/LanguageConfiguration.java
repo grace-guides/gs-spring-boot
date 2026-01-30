@@ -6,9 +6,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class LanguageConfiguration {
 
-    // @Bean
-    // public LanguageManager languageManager() {
-    //     return new DefaultLanguageManager();
-    // }
+    @Bean
+    public LanguageManager languageManager() {
+        return new DefaultLanguageManager();
+    }
 
 }
