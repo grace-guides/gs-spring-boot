@@ -26,8 +26,7 @@ dependencies {
     developmentOlny 'org.springframework.boot:spring-boot-starter-devtools'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation "org.graceframework:grace-boot:$graceVersion"
-    implementation "org.graceframework:grace-plugin-core:$graceVersion"
+    implementation "org.graceframework:grace-boot-plugin:$graceVersion"
     implementation "org.graceframework:grace-plugin-management:$graceVersion"
     implementation "org.graceframework:grace-plugin-dynamic-modules:$graceVersion"
     implementation 'org.apache.groovy:groovy'
