@@ -18,7 +18,7 @@ $ spring init \
 
 === Using Spring Boot 3.4.13
 
-In this guide, I will use Spring Boot `3.4.13`, Grace `2024.0.0` is now built upon version `3.4.13`.
+In this guide, I will use Spring Boot `3.4.13`, Grace `2024.0.1` is now built upon version `3.4.13`.
 
 [source,groovy]
 ----
@@ -26,7 +26,7 @@ plugins {
 	id 'groovy'
 	id 'org.springframework.boot' version '3.4.13'
 	id 'io.spring.dependency-management' version '1.1.7'
-    id 'org.graceframework.grace-core' version '2024.0.0'
+    id 'org.graceframework.grace-core' version '2024.0.1'
 }
 
 group = 'grace.guides'
@@ -163,23 +163,23 @@ class GraceBootApplication implements CommandLineRunner {
 
  :: Spring Boot ::               (v3.4.13)
 
-2026-04-02T14:40:38.266+08:00  INFO 86733 --- [           main] grace.guides.GraceBootApplication        : Starting GraceBootApplication using Java 17.0.17 with PID 86733 (/Users/rain/Development/grace/grace-guides/gs-spring-boot/build/classes/groovy/main started by rain in /Users/rain/Development/grace/grace-guides/gs-spring-boot)
-2026-04-02T14:40:38.268+08:00  INFO 86733 --- [           main] grace.guides.GraceBootApplication        : No active profile set, falling back to 1 default profile: "default"
-2026-04-02T14:40:39.381+08:00  INFO 86733 --- [           main] g.plugins.DefaultGrailsPluginManager     : Total 3 plugins loaded successfully, take in 144 ms
-2026-04-02T14:40:39.894+08:00  INFO 86733 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-04-02T14:40:39.913+08:00  INFO 86733 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-04-02T14:40:39.913+08:00  INFO 86733 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.53]
-2026-04-02T14:40:39.973+08:00  INFO 86733 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-04-02T14:40:39.974+08:00  INFO 86733 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1655 ms
-2026-04-02T14:40:40.784+08:00  INFO 86733 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoints beneath base path '/actuator'
-2026-04-02T14:40:40.877+08:00  INFO 86733 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2026-04-02T14:40:40.898+08:00  INFO 86733 --- [           main] grace.guides.GraceBootApplication        : Started GraceBootApplication in 3.081 seconds (process running for 3.906)
-2026-04-02T14:40:40.899+08:00 DEBUG 86733 --- [           main] PluginsInfoApplicationContextInitializer :
+2026-04-29T11:10:15.912-05:00  INFO 4464 --- [           main] grace.guides.GraceBootApplication        : Starting GraceBootApplication using Java 17.0.17 with PID 4464 (/Users/rain/Development/grace/grace-guides/gs-spring-boot/build/classes/groovy/main started by rain in /Users/rain/Development/grace/grace-guides/gs-spring-boot)
+2026-04-29T11:10:15.915-05:00  INFO 4464 --- [           main] grace.guides.GraceBootApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-04-29T11:10:17.085-05:00  INFO 4464 --- [           main] g.plugins.DefaultGrailsPluginManager     : Total 3 plugins loaded successfully, take in 145 ms
+2026-04-29T11:10:17.605-05:00  INFO 4464 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-04-29T11:10:17.622-05:00  INFO 4464 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-29T11:10:17.623-05:00  INFO 4464 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.54]
+2026-04-29T11:10:17.689-05:00  INFO 4464 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-29T11:10:17.690-05:00  INFO 4464 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1723 ms
+2026-04-29T11:10:18.516-05:00  INFO 4464 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoints beneath base path '/actuator'
+2026-04-29T11:10:18.595-05:00  INFO 4464 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-04-29T11:10:18.616-05:00  INFO 4464 --- [           main] grace.guides.GraceBootApplication        : Started GraceBootApplication in 3.177 seconds (process running for 4.0)
+2026-04-29T11:10:18.617-05:00 DEBUG 4464 --- [           main] PluginsInfoApplicationContextInitializer :
 ----------------------------------------------------------------------------------------------------------
 Order      Plugin Name                        Plugin Version                                       Enabled
 ----------------------------------------------------------------------------------------------------------
-    1      Core                               2024.0.0                                                   Y
-    2      DynamicModules                     2024.0.0                                                   Y
+    1      Core                               2024.0.1                                                   Y
+    2      DynamicModules                     2024.0.1                                                   Y
     3      Language                           1.0.0                                                      Y
 ----------------------------------------------------------------------------------------------------------
 
@@ -195,7 +195,7 @@ Language: key=zh_TW, title=Chinese (Traditional Chinese)
 HTTP/1.1 200
 Connection: keep-alive
 Content-Type: application/vnd.spring-boot.actuator.v3+json
-Date: Thu, 02 Apr 2026 06:41:51 GMT
+Date: Wed, 29 Apr 2026 16:11:17 GMT
 Keep-Alive: timeout=60
 Transfer-Encoding: chunked
 
@@ -205,13 +205,13 @@ Transfer-Encoding: chunked
             "dependencies": [],
             "name": "core",
             "type": "org.grails.plugins.core.CoreGrailsPlugin",
-            "version": "2024.0.0"
+            "version": "2024.0.1"
         },
         {
             "dependencies": [],
             "name": "dynamicModules",
             "type": "org.grails.plugins.modules.DynamicModulesGrailsPlugin",
-            "version": "2024.0.0"
+            "version": "2024.0.1"
         },
         {
             "dependencies": [],
@@ -226,13 +226,13 @@ Transfer-Encoding: chunked
 HTTP/1.1 200
 Connection: keep-alive
 Content-Type: application/vnd.spring-boot.actuator.v3+json
-Date: Thu, 02 Apr 2026 06:41:22 GMT
+Date: Wed, 29 Apr 2026 16:10:57 GMT
 Keep-Alive: timeout=60
 Transfer-Encoding: chunked
 
 {
     "app": {
-        "graceVersion": "2024.0.0",
+        "graceVersion": "2024.0.1",
         "name": "gs-spring-boot",
         "servletVersion": "6.0",
         "version": "2024.0.0-SNAPSHOT"

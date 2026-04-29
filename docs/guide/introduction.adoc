@@ -3,6 +3,6 @@ Using Grace with Spring Boot to develop an application
 
 === Versions
 
-* Grace 2024.0.0
+* Grace 2024.0.1
 * Groovy 4.0.30
 * Spring Boot 3.4.13
