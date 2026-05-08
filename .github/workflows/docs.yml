@@ -2,7 +2,7 @@ name: Grace Doc
 on:
   push:
     branches:
-      - main
+      - 2024.0.x
     paths:
       - 'docs/**'
 jobs:
