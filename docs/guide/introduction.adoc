@@ -5,4 +5,5 @@ Using Grace with Spring Boot to develop an application
 
 * Grace 2024.1.0-RC2
 * Groovy 4.0.32
+* Gradle 8.14.5
 * Spring Boot 3.5.14
