@@ -46,3 +46,12 @@ tasks.named('groovydoc') {
     docTitle = "GS Spring Boot - ${project.version}"
     destinationDir = project.file('build/docs/manual/api')
 }
+
+publishGuide {
+    dependsOn groovydoc
+    sourceDir = project.file('docs')
+}
+
+tasks.register('docs') { task ->
+    task.dependsOn groovydoc, publishGuide
+}
