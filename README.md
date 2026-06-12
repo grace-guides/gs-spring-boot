@@ -19,7 +19,7 @@ Using Grace with Spring Boot to develop a Plugin-Based Application.
 
 ## Ducumentation
 
-* [2024.0.x](https://guides.graceframework.org/gs-spring-boot/2024.0.x/)
+* [2024.1.x](https://guides.graceframework.org/gs-spring-boot/2024.1.x/)
 
 ## Creating a new Spring Boot Application
 
@@ -35,9 +35,9 @@ In this guide, I will use Spring Boot `3.5.14`, Grace `2024.1.0-RC2` is now buil
 
 ```gradle
 plugins {
-	id 'groovy'
-	id 'org.springframework.boot' version '3.5.14'
-	id 'io.spring.dependency-management' version '1.1.7'
+    id 'groovy'
+    id 'org.springframework.boot' version '3.5.14'
+    id 'io.spring.dependency-management' version '1.1.7'
     id 'org.graceframework.grace-core' version '2024.1.0-RC2'
 }
 
@@ -45,27 +45,27 @@ group = 'grace.guides'
 version = '0.0.1-SNAPSHOT'
 
 java {
-	sourceCompatibility = '17'
+    sourceCompatibility = '17'
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 configurations {
-	developmentOlny
+    developmentOlny
 }
 
 dependencies {
-	developmentOlny 'org.springframework.boot:spring-boot-starter-devtools'
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.apache.groovy:groovy'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    developmentOlny 'org.springframework.boot:spring-boot-starter-devtools'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.apache.groovy:groovy'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
 
 ```
@@ -76,14 +76,14 @@ First, import `grace-bom`, then add the Grace dependencies,
 
 ```gradle
 dependencyManagement {
-	imports {
+    imports {
         mavenBom "org.graceframework:grace-bom:$graceVersion"
     }
 }
 
 dependencies {
-	// Grace dependencies
-	implementation 'org.graceframework:grace-boot-plugin'
+    // Grace dependencies
+    implementation 'org.graceframework:grace-boot-plugin'
     implementation 'org.graceframework:grace-plugin-dynamic-modules'
     ...
 }
@@ -134,21 +134,21 @@ class LanguageGrailsPlugin extends DynamicPlugin {
 @SpringBootApplication
 class GraceBootApplication implements CommandLineRunner {
 
-	@Autowired
-	LanguageManager languageManager
+    @Autowired
+    LanguageManager languageManager
 
-	static void main(String[] args) {
-		SpringApplication.run(GraceBootApplication, args)
-	}
+    static void main(String[] args) {
+        SpringApplication.run(GraceBootApplication, args)
+    }
 
-	@Override
-	void run(String... args) throws Exception {
-		List<LanguageModuleDescriptor> languageModuleDescriptors = this.languageManager.getLanguages()
+    @Override
+    void run(String... args) throws Exception {
+        List<LanguageModuleDescriptor> languageModuleDescriptors = this.languageManager.getLanguages()
 
-		languageModuleDescriptors.each { md ->
-			println "Language: key=$md.key, title=$md.title"
-		}
-	}
+        languageModuleDescriptors.each { md ->
+            println "Language: key=$md.key, title=$md.title"
+        }
+    }
 
 }
 ```
