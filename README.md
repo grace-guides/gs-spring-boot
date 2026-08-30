@@ -3,9 +3,9 @@
 [![Grace Document](https://img.shields.io/badge/Grace_Document-latest-blue?style=flat&logo=asciidoctor&logoColor=E40046&labelColor=ffffff&color=f49b06)](https://guides.graceframework.org/gs-spring-boot/2024.0.x/)
 [![Grace on X](https://img.shields.io/twitter/follow/graceframework?style=social)](https://x.com/graceframework)
 
-[![Groovy Version](https://img.shields.io/badge/Groovy-4.0.32-blue?style=flat&color=4298b8)](https://groovy-lang.org/releasenotes/groovy-4.0.html)
-[![Grace Version](https://img.shields.io/badge/Grace-2024.1.0-blue?style=flat&color=f49b06)](https://github.com/graceframework/grace-framework/releases/tag/v2024.1.0)
-[![Spring Boot Version](https://img.shields.io/badge/Spring_Boot-3.5.15-blue?style=flat&color=6db33f)](https://github.com/spring-projects/spring-boot/releases/tag/v3.5.15)
+[![Groovy Version](https://img.shields.io/badge/Groovy-4.0.33-blue?style=flat&color=4298b8)](https://groovy-lang.org/releasenotes/groovy-4.0.html)
+[![Grace Version](https://img.shields.io/badge/Grace-2024.1.2-blue?style=flat&color=f49b06)](https://github.com/graceframework/grace-framework/releases/tag/v2024.1.2)
+[![Spring Boot Version](https://img.shields.io/badge/Spring_Boot-3.5.16-blue?style=flat&color=6db33f)](https://github.com/spring-projects/spring-boot/releases/tag/v3.5.16)
 
 # Grace with Spring Boot
 
@@ -13,9 +13,9 @@ Using Grace with Spring Boot to develop a Plugin-Based Application.
 
 ## Versions
 
-* Grace 2024.1.0
-* Groovy 4.0.32
-* Spring Boot 3.5.15
+* Grace 2024.1.2
+* Groovy 4.0.33
+* Spring Boot 3.5.16
 
 ## Ducumentation
 
@@ -29,16 +29,16 @@ Using Grace with Spring Boot to develop a Plugin-Based Application.
 spring init -a=gs-spring-boot -g=grace.guides -n="Grace Guide for Spring Boot" --description="Spring Boot Application with Grace Plugins" --package-name=grace.guides -l=groovy --build=gradle --format=project -t=gradle-project -d=devtools,actuator,web -x
 ```
 
-### Using Spring Boot 3.5.15
+### Using Spring Boot 3.5.16
 
-In this guide, I will use Spring Boot `3.5.15`, Grace `2024.1.0` is now built upon version `3.5.15`.
+In this guide, I will use Spring Boot `3.5.16`, Grace `2024.1.2` is now built upon version `3.5.16`.
 
 ```gradle
 plugins {
     id 'groovy'
-    id 'org.springframework.boot' version '3.5.15'
+    id 'org.springframework.boot' version '3.5.16'
     id 'io.spring.dependency-management' version '1.1.7'
-    id 'org.graceframework.grace-core' version '2024.1.0'
+    id 'org.graceframework.grace-core' version '2024.1.2'
 }
 
 group = 'grace.guides'
@@ -167,34 +167,34 @@ class GraceBootApplication implements CommandLineRunner {
   '  |____| .__|_| |_|_| |_\__, | / / / /
  =========|_|==============|___/=/_/_/_/
 
- :: Spring Boot ::               (v3.5.15)
+ :: Spring Boot ::               (v3.5.16)
 
-2026-06-25T02:13:34.615+08:00  INFO 37521 --- [           main] grace.guides.GraceBootApplication        : Starting GraceBootApplication using Java 17.0.19 with PID 37521 (/Users/rain/Development/github/grace/grace-guides/gs-spring-boot/build/classes/groovy/main started by rain in /Users/rain/Development/github/grace/grace-guides/gs-spring-boot)
-2026-06-25T02:13:34.617+08:00  INFO 37521 --- [           main] grace.guides.GraceBootApplication        : No active profile set, falling back to 1 default profile: "default"
-2026-06-25T02:13:35.088+08:00  INFO 37521 --- [           main] g.plugins.DefaultGrailsPluginManager     : Total 3 plugins loaded successfully, take in 64 ms
-2026-06-25T02:13:35.246+08:00  INFO 37521 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-06-25T02:13:35.253+08:00  INFO 37521 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-06-25T02:13:35.253+08:00  INFO 37521 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.55]
-2026-06-25T02:13:35.309+08:00  INFO 37521 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-06-25T02:13:35.310+08:00  INFO 37521 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 675 ms
-2026-06-25T02:13:35.584+08:00  INFO 37521 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoints beneath base path '/actuator'
-2026-06-25T02:13:35.613+08:00  INFO 37521 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2026-06-25T02:13:35.622+08:00  INFO 37521 --- [           main] grace.guides.GraceBootApplication        : Started GraceBootApplication in 1.16 seconds (process running for 1.39)
-2026-06-25T02:13:35.623+08:00 DEBUG 37521 --- [           main] PluginsInfoApplicationContextInitializer :
+2026-08-03T11:41:48.686+08:00  INFO 85627 --- [           main] grace.guides.GraceBootApplication        : Starting GraceBootApplication using Java 17.0.19 with PID 85627 (/Users/rain/Development/github/grace/grace-guides/gs-spring-boot/build/classes/groovy/main started by rain in /Users/rain/Development/github/grace/grace-guides/gs-spring-boot)
+2026-08-03T11:41:48.687+08:00  INFO 85627 --- [           main] grace.guides.GraceBootApplication        : No active profile set, falling back to 1 default profile: "default"
+2026-08-03T11:41:49.187+08:00  INFO 85627 --- [           main] g.plugins.DefaultGrailsPluginManager     : Total 3 plugins loaded successfully, take in 62 ms
+2026-08-03T11:41:49.340+08:00  INFO 85627 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-08-03T11:41:49.346+08:00  INFO 85627 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-03T11:41:49.346+08:00  INFO 85627 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.57]
+2026-08-03T11:41:49.364+08:00  INFO 85627 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-08-03T11:41:49.365+08:00  INFO 85627 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 659 ms
+2026-08-03T11:41:49.718+08:00  INFO 85627 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoints beneath base path '/actuator'
+2026-08-03T11:41:49.747+08:00  INFO 85627 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-08-03T11:41:49.756+08:00  INFO 85627 --- [           main] grace.guides.GraceBootApplication        : Started GraceBootApplication in 1.234 seconds (process running for 1.45)
+2026-08-03T11:41:49.757+08:00 DEBUG 85627 --- [           main] PluginsInfoApplicationContextInitializer :
 ----------------------------------------------------------------------------------------------------------
 Order      Plugin Name                        Plugin Version                                       Enabled
 ----------------------------------------------------------------------------------------------------------
-    1      Core                               2024.1.0                                                   Y
-    2      DynamicModules                     2024.1.0                                                   Y
+    1      Core                               2024.1.2                                                   Y
+    2      DynamicModules                     2024.1.2                                                   Y
     3      Language                           1.0.0                                                      Y
 ----------------------------------------------------------------------------------------------------------
 
 Language: key=en_US, title=English
 Language: key=zh_CN, title=Chinese (Simplified Chinese)
 Language: key=zh_TW, title=Chinese (Traditional Chinese)
-2026-06-25T02:13:42.012+08:00  INFO 37521 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-06-25T02:13:42.012+08:00  INFO 37521 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-06-25T02:13:42.013+08:00  INFO 37521 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-08-03T11:42:45.156+08:00  INFO 85627 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-08-03T11:42:45.156+08:00  INFO 85627 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-08-03T11:42:45.156+08:00  INFO 85627 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
 ```
 
 ### Accessing endpoints `plugins` and `info`
@@ -204,7 +204,7 @@ Language: key=zh_TW, title=Chinese (Traditional Chinese)
 HTTP/1.1 200
 Connection: keep-alive
 Content-Type: application/json
-Date: Wed, 24 Jun 2026 18:14:06 GMT
+Date: Mon, 03 Aug 2026 03:42:45 GMT
 Keep-Alive: timeout=60
 Transfer-Encoding: chunked
 
@@ -214,13 +214,13 @@ Transfer-Encoding: chunked
             "dependencies": [],
             "name": "core",
             "type": "org.grails.plugins.core.CoreGrailsPlugin",
-            "version": "2024.1.0"
+            "version": "2024.1.2"
         },
         {
             "dependencies": [],
             "name": "dynamicModules",
             "type": "org.grails.plugins.modules.DynamicModulesGrailsPlugin",
-            "version": "2024.1.0"
+            "version": "2024.1.2"
         },
         {
             "dependencies": [],
@@ -235,13 +235,13 @@ Transfer-Encoding: chunked
 HTTP/1.1 200
 Connection: keep-alive
 Content-Type: application/json
-Date: Wed, 24 Jun 2026 18:13:42 GMT
+Date: Mon, 03 Aug 2026 03:43:47 GMT
 Keep-Alive: timeout=60
 Transfer-Encoding: chunked
 
 {
     "app": {
-        "graceVersion": "2024.1.0",
+        "graceVersion": "2024.1.2",
         "name": "gs-spring-boot",
         "servletVersion": "6.0",
         "version": "2024.1.0-SNAPSHOT"
